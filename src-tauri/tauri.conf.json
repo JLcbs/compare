@@ -1,0 +1,114 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:5173",
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "Text Diff Desktop",
+    "version": "1.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "dialog": {
+        "all": true
+      },
+      "fs": {
+        "all": true,
+        "scope": ["$APPDATA/*", "$RESOURCE/*", "$DOCUMENT/*", "$DOWNLOAD/*"]
+      },
+      "path": {
+        "all": true
+      },
+      "process": {
+        "all": false,
+        "exit": true,
+        "relaunch": true
+      },
+      "shell": {
+        "all": false,
+        "open": true
+      },
+      "window": {
+        "all": true
+      },
+      "clipboard": {
+        "all": true
+      },
+      "globalShortcut": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.textdiff.desktop",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "resources": ["resources/*"],
+      "externalBin": [],
+      "copyright": "© 2024 Text Diff Team",
+      "category": "Productivity",
+      "shortDescription": "强大的文本对比工具",
+      "longDescription": "跨平台的专业文本对比工具，支持多种文件格式，提供详细的差异分析。",
+      "deb": {
+        "depends": []
+      },
+      "macOS": {
+        "frameworks": [],
+        "minimumSystemVersion": "10.15",
+        "exceptionDomain": "",
+        "signingIdentity": null,
+        "providerShortName": null,
+        "entitlements": null
+      },
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": "",
+        "wix": {
+          "language": "zh-CN"
+        }
+      }
+    },
+    "security": {
+      "csp": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' http://localhost:* ws://localhost:*"
+    },
+    "updater": {
+      "active": true,
+      "endpoints": [
+        "https://updates.textdiff.com/{{target}}/{{current_version}}"
+      ],
+      "dialog": true,
+      "pubkey": ""
+    },
+    "windows": [
+      {
+        "title": "Text Diff Desktop",
+        "width": 1400,
+        "height": 900,
+        "minWidth": 1000,
+        "minHeight": 600,
+        "resizable": true,
+        "fullscreen": false,
+        "center": true,
+        "decorations": true,
+        "transparent": false,
+        "skipTaskbar": false,
+        "fileDropEnabled": true
+      }
+    ],
+    "systemTray": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true,
+      "menuOnLeftClick": false
+    }
+  }
+}

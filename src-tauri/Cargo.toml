@@ -1,0 +1,85 @@
+[package]
+name = "text-diff-desktop"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+# Tauri核心
+tauri = { version = "1.5", features = [
+    "dialog-all",
+    "fs-all",
+    "path-all",
+    "process-all",
+    "shell-all",
+    "window-all",
+    "updater",
+    "system-tray"
+] }
+
+# 基础依赖
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+chrono.workspace = true
+log.workspace = true
+env_logger.workspace = true
+
+# Diff引擎
+similar.workspace = true
+diff.workspace = true
+
+# 文件解析
+docx-rs.workspace = true
+lopdf.workspace = true
+zip.workspace = true
+scraper.workspace = true
+pulldown-cmark.workspace = true
+html-escape.workspace = true
+
+# 异步
+futures = "0.3"
+async-trait = "0.1"
+
+# 加密
+aes = "0.8"
+sha2 = "0.10"
+base64 = "0.21"
+
+# 数据库（用于历史记录）
+rusqlite = { version = "0.30", features = ["bundled"] }
+
+# 系统集成
+dirs = "5.0"
+open = "5.0"
+
+# 性能监控
+sysinfo = "0.30"
+
+# 插件系统
+libloading = "0.8"
+rhai = { version = "1.16", features = ["sync"] }
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
+ocr = ["tesseract"]
+pdf-advanced = ["headless_chrome"]
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.52", features = ["Win32_Foundation", "Win32_System_Com"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+cocoa = "0.25"
+objc = "0.2"
+
+[dev-dependencies]
+criterion.workspace = true
+proptest.workspace = true
+tempfile = "3.8"
