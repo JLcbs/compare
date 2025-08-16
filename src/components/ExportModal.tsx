@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Download, FileText, Code, FileJson } from 'lucide-react';
+import { X, Download, FileText, FileJson } from 'lucide-react';
 import { useAppStore } from '@/stores/appStore';
 import { exportDiff } from '@/utils/exporters';
 import type { ExportOptions } from '@/types';

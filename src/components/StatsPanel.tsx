@@ -4,8 +4,7 @@ import {
   Plus, 
   Minus, 
   Edit, 
-  FileText, 
-  Hash,
+  FileText,
   TrendingUp
 } from 'lucide-react';
 import clsx from 'clsx';

@@ -6,7 +6,7 @@ import {
   DiffOptions,
   NavigationItem 
 } from '@/types';
-import { tokenize, containsChinese, TextSegment } from './chineseTokenizer';
+import { tokenize, containsChinese } from './chineseTokenizer';
 
 const dmp = new DiffMatchPatch();
 
@@ -89,12 +89,12 @@ export function computeDiff(
  * 双层对比：先段落/句子级，再字符级
  */
 function computeHierarchicalDiff(
-  leftText: string,
-  rightText: string,
+  _leftText: string,
+  _rightText: string,
   processedLeft: string,
   processedRight: string,
   options: DiffOptions,
-  hasChinese: boolean
+  _hasChinese: boolean
 ): DiffItem[] {
   const diffItems: DiffItem[] = [];
   
@@ -181,11 +181,11 @@ function computeHierarchicalDiff(
  * 字符级对比
  */
 function computeCharacterDiff(
-  leftText: string,
-  rightText: string,
+  _leftText: string,
+  _rightText: string,
   processedLeft: string,
   processedRight: string,
-  hasChinese: boolean
+  _hasChinese: boolean
 ): DiffItem[] {
   const diffItems: DiffItem[] = [];
   

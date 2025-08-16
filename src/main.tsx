@@ -26,20 +26,7 @@ const checkBrowserCompatibility = () => {
   }
 };
 
-// 性能监控 - 可选功能，需要安装web-vitals包
-// if (import.meta.env.DEV) {
-//   const reportWebVitals = (metric: any) => {
-//     console.log(metric);
-//   };
-//   
-//   import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-//     getCLS(reportWebVitals);
-//     getFID(reportWebVitals);
-//     getFCP(reportWebVitals);
-//     getLCP(reportWebVitals);
-//     getTTFB(reportWebVitals);
-//   });
-// }
+
 
 // 初始化
 checkBrowserCompatibility();

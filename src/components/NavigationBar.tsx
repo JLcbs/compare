@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronUp, ChevronDown, Home, End } from 'lucide-react';
+import { ChevronUp, ChevronDown, Home, Square } from 'lucide-react';
 import { useAppStore } from '@/stores/appStore';
 import { DiffType } from '@/types';
 import clsx from 'clsx';
@@ -117,7 +117,7 @@ export const NavigationBar: React.FC = () => {
             className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             title="最后一个差异 (End)"
           >
-            <End className="w-4 h-4 text-gray-600 dark:text-gray-400" />
+            <Square className="w-4 h-4 text-gray-600 dark:text-gray-400" />
           </button>
         </div>
       </div>

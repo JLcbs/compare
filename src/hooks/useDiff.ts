@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useRef } from 'react';
 import { useAppStore } from '@/stores/appStore';
-import { computeDiff, computeDiffAsync } from '@/utils/diffEngine';
+import { computeDiffAsync } from '@/utils/diffEngine';
 import { debounce } from '@/utils/helpers';
 import type { DiffOptions } from '@/types';
 

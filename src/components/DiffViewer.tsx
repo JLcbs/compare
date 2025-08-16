@@ -32,7 +32,7 @@ export const DiffViewer: React.FC = () => {
     }
   }, [currentNavigationIndex, navigationItems]);
   
-  const renderDiffItem = (item: typeof diffItems[0], index: number) => {
+  const renderDiffItem = (item: typeof diffItems[0]) => {
     const isCurrentNavigation = navigationItems.some(
       nav => nav.id === item.id && navigationItems.indexOf(nav) === currentNavigationIndex
     );
@@ -93,7 +93,7 @@ export const DiffViewer: React.FC = () => {
       className="h-full overflow-auto custom-scrollbar bg-white dark:bg-gray-900"
     >
       <div className="min-h-full">
-        {diffItems.map((item, index) => renderDiffItem(item, index))}
+        {diffItems.map((item) => renderDiffItem(item))}
       </div>
     </div>
   );

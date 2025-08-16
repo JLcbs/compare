@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { TextInput } from './components/TextInput';
 import { DiffViewer } from './components/DiffViewer';
 import { ControlPanel } from './components/ControlPanel';

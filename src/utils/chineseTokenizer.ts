@@ -117,10 +117,11 @@ export function splitBySentence(text: string): string[] {
 export function tokenizeByCharacter(text: string): string[] {
   const tokens: string[] = [];
   let currentToken = '';
-  let lastType: 'chinese' | 'english' | 'number' | 'punctuation' | 'whitespace' | null = null;
+  type CharType = 'chinese' | 'english' | 'number' | 'punctuation' | 'whitespace' | null;
+  let lastType: CharType = null;
   
   for (const char of text) {
-    let currentType: typeof lastType = null;
+    let currentType: CharType = null;
     
     if (/[\u4e00-\u9fa5]/.test(char)) {
       currentType = 'chinese';

@@ -4,7 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/compare/',
+  base: process.env.GITHUB_PAGES ? '/compare/' : '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
