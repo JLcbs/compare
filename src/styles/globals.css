@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-diff-add: 34, 197, 94;
+    --color-diff-remove: 239, 68, 68;
+    --color-diff-modify: 59, 130, 246;
+    --color-diff-add-bg: 220, 252, 231;
+    --color-diff-remove-bg: 254, 226, 226;
+    --color-diff-modify-bg: 219, 234, 254;
+  }
+
+  .dark {
+    --color-diff-add: 34, 197, 94;
+    --color-diff-remove: 239, 68, 68;
+    --color-diff-modify: 59, 130, 246;
+    --color-diff-add-bg: 22, 101, 52;
+    --color-diff-remove-bg: 127, 29, 29;
+    --color-diff-modify-bg: 30, 58, 138;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* 差异高亮样式 */
+  .diff-add {
+    @apply bg-diff-add-bg text-green-900 dark:text-green-100;
+    text-decoration: underline;
+    text-decoration-color: rgb(var(--color-diff-add));
+    text-underline-offset: 2px;
+  }
+
+  .diff-remove {
+    @apply bg-diff-remove-bg text-red-900 dark:text-red-100;
+    text-decoration: line-through;
+    text-decoration-color: rgb(var(--color-diff-remove));
+  }
+
+  .diff-modify {
+    @apply bg-diff-modify-bg text-blue-900 dark:text-blue-100;
+  }
+
+  /* 滚动条样式 */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.gray.400') theme('colors.gray.100');
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800 rounded;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 dark:bg-gray-600 rounded hover:bg-gray-500;
+  }
+
+  /* 动画 */
+  .diff-highlight-animation {
+    animation: highlight-pulse 1.5s ease-in-out;
+  }
+
+  @keyframes highlight-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  /* Monaco编辑器覆盖样式 */
+  .monaco-editor-container {
+    @apply border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden;
+  }
+
+  /* 工具提示样式 */
+  .tooltip {
+    @apply invisible absolute z-50 inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 dark:bg-gray-700;
+  }
+
+  .tooltip-visible {
+    @apply visible opacity-100;
+  }
+
+  /* 加载动画 */
+  .loader {
+    @apply inline-block w-8 h-8 border-4 border-gray-200 border-t-blue-500 rounded-full animate-spin;
+  }
+}
+
+@layer utilities {
+  /* 文本选择样式 */
+  .selection-highlight::selection {
+    @apply bg-blue-200 dark:bg-blue-800;
+  }
+
+  /* 禁用选择 */
+  .no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  /* 平滑滚动 */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  /* 保持纵横比 */
+  .aspect-diff {
+    aspect-ratio: 1 / 1;
+  }
+}
