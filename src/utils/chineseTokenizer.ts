@@ -3,25 +3,8 @@
  * 用于将文本按照中文标点、段落等进行智能分割
  */
 
-// 中文标点符号集合
-const CHINESE_PUNCTUATION = [
-  '。', '！', '？', '；', '：', '，', '、',
-  '（', '）', '【', '】', '《', '》', '"', '"', 
-  '…', '—', '·', '～', '￥', '％'
-];
-
-// 英文标点符号集合
-const ENGLISH_PUNCTUATION = [
-  '.', '!', '?', ';', ':', ',',
-  '(', ')', '[', ']', '{', '}', '"', "'",
-  '...', '-', '_', '~', '$', '%', '&', '*', '@', '#'
-];
-
 // 句子结束标点
 const SENTENCE_ENDINGS = ['。', '！', '？', '.', '!', '?', '；', ';'];
-
-// 段落分隔符
-const PARAGRAPH_SEPARATORS = ['\n\n', '\r\n\r\n'];
 
 export interface TokenizeOptions {
   splitByParagraph?: boolean;

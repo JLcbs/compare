@@ -9,7 +9,7 @@ export function debounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout;
+  let timeout: ReturnType<typeof setTimeout>;
   
   return function (...args: Parameters<T>) {
     clearTimeout(timeout);
@@ -303,8 +303,8 @@ export class PerformanceTimer {
   getReport(): Record<string, number> {
     const report: Record<string, number> = {};
     
-    this.marks.forEach((time, name) => {
-      report[name] = time - this.startTime;
+    this.marks.forEach((time, markName) => {
+      report[markName] = time - this.startTime;
     });
     
     report.total = performance.now() - this.startTime;
